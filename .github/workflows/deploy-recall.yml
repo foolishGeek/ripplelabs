@@ -1,0 +1,31 @@
+name: Deploy Recall to Production
+
+on:
+  push:
+    branches:
+      - master
+    paths:
+      - 'recall/**'
+      - 'vercel.json'
+      - 'robots.txt'
+
+concurrency:
+  group: deploy-recall-production
+  cancel-in-progress: true
+
+jobs:
+  deploy:
+    name: Deploy ripplelabs.in/recall
+    runs-on: ubuntu-latest
+    env:
+      VERCEL_ORG_ID: ${{ secrets.VERCEL_ORG_ID }}
+      VERCEL_PROJECT_ID: ${{ secrets.VERCEL_PROJECT_ID }}
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Install Vercel CLI
+        run: npm install -g vercel@latest
+
+      - name: Deploy to Vercel Production
+        run: vercel deploy --prod --token=${{ secrets.VERCEL_TOKEN }}
