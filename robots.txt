@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /recall/
+
+Sitemap: https://ripplelabs.in/recall/sitemap.xml

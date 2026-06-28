@@ -1,0 +1,12 @@
+User-agent: *
+Allow: /recall/
+Disallow: /recall/assets/
+
+User-agent: Googlebot
+Allow: /recall/
+
+User-agent: Bingbot
+Allow: /recall/
+
+Sitemap: https://ripplelabs.in/recall/sitemap.xml
+Host: https://ripplelabs.in

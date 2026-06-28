@@ -1,0 +1,25 @@
+{
+  "redirects": [
+    {
+      "source": "/",
+      "destination": "/recall",
+      "permanent": false
+    },
+    {
+      "source": "/:path*",
+      "has": [{ "type": "host", "value": "www.ripplelabs.in" }],
+      "destination": "https://ripplelabs.in/:path*",
+      "permanent": true
+    }
+  ],
+  "trailingSlash": false,
+  "headers": [
+    {
+      "source": "/(.*)",
+      "headers": [
+        { "key": "X-Content-Type-Options", "value": "nosniff" },
+        { "key": "Referrer-Policy", "value": "strict-origin-when-cross-origin" }
+      ]
+    }
+  ]
+}
