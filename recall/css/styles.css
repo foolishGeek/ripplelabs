@@ -316,48 +316,91 @@ path[data-anim="curve-dashed"].done { animation: none !important; opacity: 1 !im
   color: var(--soft);
 }
 
-/* Store buttons */
-.hero-buttons, .cta-buttons {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 13px;
+/* Waitlist form */
+.hero-waitlist {
   margin-top: 34px;
 }
-.btn-store {
+.cta-waitlist {
+  margin-top: 38px;
+  display: flex;
+  justify-content: center;
+}
+.waitlist-form {
+  width: 100%;
+  max-width: 460px;
+}
+.waitlist-field {
+  display: flex;
+  gap: 0;
+  border-radius: 16px;
+  border: 1.5px solid var(--line);
+  background: var(--card);
+  box-shadow: 0 10px 30px var(--shadow);
+  overflow: hidden;
+  transition: border-color .3s, box-shadow .3s;
+}
+.waitlist-field:focus-within {
+  border-color: var(--ink);
+  box-shadow: 0 10px 30px var(--shadow), 0 0 0 3px color-mix(in srgb, var(--ink) 10%, transparent);
+}
+.waitlist-input {
+  flex: 1;
+  min-width: 0;
+  padding: 15px 20px;
+  border: none;
+  background: transparent;
+  font-family: 'Inter', system-ui, sans-serif;
+  font-size: 15px;
+  color: var(--ink);
+  outline: none;
+}
+.waitlist-input::placeholder {
+  color: var(--faint);
+  opacity: 1;
+}
+.waitlist-btn {
+  flex: none;
   display: flex;
   align-items: center;
-  gap: 13px;
-  padding: 12px 22px 12px 18px;
-  border-radius: 16px;
-  text-decoration: none;
-  box-shadow: 0 10px 26px var(--shadow);
-  transition: transform .35s cubic-bezier(.34,1.42,.64,1);
-}
-.btn-store:hover { transform: translateY(-3px); }
-.btn-store--fill {
+  gap: 8px;
+  padding: 0 24px;
+  margin: 5px 5px 5px 0;
+  border: none;
+  border-radius: 13px;
   background: var(--ink);
   color: var(--canvas);
+  font-family: 'Inter', system-ui, sans-serif;
+  font-weight: 600;
+  font-size: 14.5px;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: transform .35s cubic-bezier(.34,1.42,.64,1), opacity .3s;
 }
-.btn-store--outline {
-  border: 1.5px solid var(--ink);
-  background: var(--card);
+.waitlist-btn:hover { transform: translateY(-2px); }
+.waitlist-btn:active { transform: scale(0.97); }
+.waitlist-btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  transform: none;
+}
+.waitlist-btn .arrow { font-size: 16px; line-height: 1; }
+.waitlist-success {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 16px 0;
+  font-family: 'Instrument Serif', serif;
+  font-style: italic;
+  font-size: 18px;
   color: var(--ink);
-  box-shadow: 0 8px 22px var(--shadow);
+  animation: revealIn .6s cubic-bezier(.2,.7,.2,1) both;
 }
-.btn-store__text { text-align: left; line-height: 1; }
-.btn-store__label {
-  font-family: 'JetBrains Mono', monospace;
-  font-size: 9px;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  opacity: 0.66;
-  margin-bottom: 3px;
-}
-.btn-store--outline .btn-store__label { opacity: 0.62; }
-.btn-store__name {
-  font-family: 'Nunito', sans-serif;
-  font-weight: 700;
-  font-size: 16px;
+.waitlist-error {
+  margin-top: 10px;
+  font-size: 13px;
+  color: #E5484D;
+  text-align: center;
 }
 
 /* Meta line */
@@ -1123,13 +1166,9 @@ details[open] > .faq-q::after {
   line-height: 1.6;
   color: var(--soft);
 }
-.cta-buttons {
-  justify-content: center;
-  margin-top: 38px;
+.cta-waitlist .waitlist-form {
+  max-width: 480px;
 }
-.cta-buttons .btn-store { box-shadow: 0 12px 30px var(--shadow); }
-.cta-buttons .btn-store--outline { box-shadow: 0 10px 26px var(--shadow); }
-.cta-buttons .btn-store__name { font-size: 17px; }
 
 /* ══════════════════════════════════════════════════════════
    FOOTER
@@ -1366,7 +1405,10 @@ details[open] > .faq-q::after {
 
   /* CTA */
   .cta-section { padding-top: 64px; padding-bottom: 64px; }
-  .cta-buttons { flex-direction: column; align-items: center; }
+
+  /* Waitlist mobile */
+  .waitlist-field { flex-direction: column; border-radius: 18px; }
+  .waitlist-btn { margin: 0 5px 5px; padding: 14px 24px; border-radius: 14px; justify-content: center; }
 
   /* Footer */
   .footer-inner { flex-direction: column; text-align: center; gap: 16px; }

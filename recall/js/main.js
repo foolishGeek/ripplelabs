@@ -197,6 +197,44 @@
   }
 
   /* ═══════════════════════════════════════════════
+     WAITLIST FORM HANDLER
+     ═══════════════════════════════════════════════ */
+  var waitlistForms = root.querySelectorAll('[data-waitlist]');
+  waitlistForms.forEach(function (form) {
+    var success = form.parentElement.querySelector('[data-waitlist-success]');
+    form.addEventListener('submit', function (e) {
+      e.preventDefault();
+      var btn = form.querySelector('.waitlist-btn');
+      var emailInput = form.querySelector('.waitlist-input');
+      var existing = form.parentElement.querySelector('.waitlist-error');
+      if (existing) existing.remove();
+
+      btn.disabled = true;
+      btn.textContent = 'Sending\u2026';
+
+      fetch(form.action, {
+        method: 'POST',
+        body: new FormData(form),
+        headers: { 'Accept': 'application/json' }
+      }).then(function (res) {
+        if (res.ok) {
+          form.style.display = 'none';
+          success.style.display = '';
+        } else {
+          throw new Error('Form submission failed');
+        }
+      }).catch(function () {
+        btn.disabled = false;
+        btn.innerHTML = 'Join waitlist <span class="arrow">\u2192</span>';
+        var err = document.createElement('div');
+        err.className = 'waitlist-error';
+        err.textContent = 'Something went wrong \u2014 please try again.';
+        form.parentElement.appendChild(err);
+      });
+    });
+  });
+
+  /* ═══════════════════════════════════════════════
      SMOOTH SCROLL for anchor links
      ═══════════════════════════════════════════════ */
   document.querySelectorAll('a[href^="#"]').forEach(function (a) {
