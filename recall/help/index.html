@@ -15,9 +15,234 @@
   <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,560&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&family=Nunito:wght@700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="/recall/css/help.css">
   <meta property="og:title" content="Help — Recall">
-  <meta property="og:description" content="Calm answers for spaced repetition, reviews, Aura, and account questions.">
+  <meta property="og:description" content="Calm answers for spaced revision, reviews, Recall Drops, Aura, and account questions.">
   <meta property="og:url" content="https://ripplelabs.in/recall/help">
   <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Recall">
+  <meta property="og:image" content="https://ripplelabs.in/recall/assets/og-image.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Help — Recall">
+  <meta name="twitter:description" content="Calm answers for spaced revision, reviews, Recall Drops, Aura, and account questions.">
+  <meta name="twitter:image" content="https://ripplelabs.in/recall/assets/og-image.png">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "@id": "https://ripplelabs.in/recall/help#faq",
+    "name": "Recall Help Center",
+    "url": "https://ripplelabs.in/recall/help",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "How do I sign in?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Use a magic link (we email you a sign-in link) or continue with Google. On supported devices you may also see Apple sign-in. Open the link on the same device where you installed Recall. If the link expires, request a new one from the sign-in screen."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What is a bucket, a note, and a stack?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Buckets are subjects (Biology, Spanish, Interview prep). Notes are what you save inside a bucket — typed text, a link, a YouTube video, a PDF or an image. Any note you mark for spaced revision becomes a card in your reviews. A stack is today’s short review set, chosen for you by the scheduler."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How does spaced repetition work here?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "After each card you say how it went: Forgot or Got it. Tap More if you want the finer grades, Hard and Easy. Cards you struggle with return sooner; cards you know well space out. Over time that flattens the forgetting curve — without cramming the night before."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Where should I begin on day one?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Create a bucket for one subject you care about and put a few notes in it. When Today shows cards ready, start a review. Small and consistent beats huge and abandoned."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Nothing is due today — is that bad?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "No. It means nothing is scheduled right now. Add new material, or wait for the next due window. “All caught up” is a feature, not a failure."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What do Forgot, Got it, Hard and Easy do?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Each rating tells the scheduler how stable the memory felt. Forgot brings the card back soon. Got it is the normal pass. Under More, Hard shortens the next gap and Easy pushes it further out. Be honest — the scheduler only works if the ratings match reality. (Quiz flashcards use the four grades directly: Forgot, Hard, Good, Easy.)"
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Recall Drops aren’t arriving",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Check three things: (1) OS notification permission is on, (2) Recall Drop / push is enabled in Settings, (3) you’re outside Quiet hours. Also confirm you have cards that can become due. Still silent? Email us with your device and OS version."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Can I make Drops quieter or louder?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes — Settings → Recall Drop → Reminder style. Gentle waits for a larger batch, nudges at most a few times a day, and never re-nudges. Standard is the default: balanced, and it re-nudges after about two hours if a Drop is still unseen. Persistent keeps nudging in smaller batches. ASAO drops as soon as even one note is ready. Each style carries its own daily cap and its own minimum gap between Drops, so none of them can pile up."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How do Quiet hours work?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Quiet hours are a window in which no Recall Drops are sent. Set a start and end time in Settings → Recall Drop → Quiet hours, or turn the window off entirely. Anything that becomes due during quiet hours simply waits until the window ends."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Can I keep a note without it entering my reviews?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes. Spaced revision is a switch you control per note and per bucket, so Recall also works as a plain notes app for anything you just want to keep. Turn it off on a single note, or on a whole bucket, and nothing from it is scheduled."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What is Memory strength?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Memory strength is how firmly you want to hold a subject. Raise it and cards come back more often, which means more reviews but a firmer hold; lower it and reviews get lighter and further apart. Set it once for your account, and override it per bucket where a subject needs a different grip."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Can I review without internet?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes. Cached cards and a queued review flow keep you moving offline. When you reconnect, pending reviews sync. For grades, entitlements, and scheduling truth, the server wins if there’s a conflict."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "I see “Updates available — tap to refresh”",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "That’s intentional. Recall never auto-refreshes mid-interaction and knocks you out of a review. When you’re ready, tap the nudge to load newer server data."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Something looks out of date after I switched phones",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Sign in on the new device and give sync a moment. If a screen still looks stale, pull to refresh or use the updates nudge. Export from Settings if you want a local backup zip."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What does Aura do?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Aura works on the notes you have already saved rather than writing new material for you. It summarises a whole bucket, answers questions about your own material and shows which notes the answer came from, and suggests clearer rewrites of a note you’re editing. AI can be wrong — read what it gives you before you rely on it."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Where does Aura get its answers?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Aura searches your own notes first and cites the ones it used. If your notes don’t cover the question, it falls back on general knowledge rather than inventing a citation to a note you don’t have. It does not browse the web, so anything outside your notes comes from the model itself — treat it as a starting point, not a source."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Can I change how Aura writes?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes — open Tune Aura and tell it how you like answers: shorter, more examples, less hedging. Those preferences are stored for your account only and applied to your future answers. You can view or clear them at any time."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Aura is empty, slow, or weird",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Check your network first — Aura needs a connection and won’t run offline. If a bucket has very little in it, answers will be thin, because Aura only has your notes to work from. Try again in a minute if a request stalls. Never paste passwords or confidential IDs into AI prompts."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Is my content used to train Ripple’s models?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "We don’t use your study content to train our own foundation models. Aura sends what’s needed for the feature to AI processors. Details live in our Privacy Policy."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How do I export my data?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Open Settings and use Export. You’ll get a downloadable archive of your core study data. Links expire after a short window for safety — download promptly."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How do I delete my account?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Settings → Delete account. This is permanent: server data is purged and the on-device cache is cleared. Cancel any store subscription separately in Google Play or the App Store so renewals stop."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Can I change the email on my account?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Sign-in is tied to your magic-link email or Google/Apple identity. For account merges or email changes, write contact@ripplelabs.in from the address on the account and tell us what you need."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What does Recall cost?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Recall is free and has no ads. There is currently no paywall anywhere in the app: the spaced-revision engine, your buckets and notes, Recall Drops, insights, and asking or summarising your notes with Aura are all open. A Premium plan will arrive later for the heavier things — the larger AI models and quiz. If a limit is ever in force on your account, the app shows it to you where it applies."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What about Quiz?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Quiz is still being finished, so it isn’t generally available yet. If you open it today you’ll see a short note saying the practice modes are on the way rather than a prompt to pay. We’ll turn it on properly once the modes are done."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How do I manage or cancel a subscription?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Subscriptions are billed by Google Play or the App Store. Manage or cancel in that store’s subscription settings. Refunds follow the store’s policies."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "I paid but Premium didn’t unlock",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Open Settings and use Restore purchases, then give it a minute while you’re online. Still locked? Email contact@ripplelabs.in with your store order ID and the email on your Recall account."
+        }
+      }
+    ]
+  }
+  </script>
 </head>
 <body>
 <div id="help-root" class="theme-light">
@@ -78,39 +303,51 @@
             <p class="faq-a">Use a magic link (we email you a sign-in link) or continue with Google. On supported devices you may also see Apple sign-in. Open the link on the same device where you installed Recall. If the link expires, request a new one from the sign-in screen.</p>
           </details>
           <details class="faq-item" data-faq>
-            <summary>What is a bucket, a node, and a stack?</summary>
-            <p class="faq-a"><strong>Buckets</strong> are subjects (Biology, Spanish, Interview prep). <strong>Nodes</strong> are the cards or notes inside a bucket. A <strong>stack</strong> is today’s short review set — what Recall asks you to revisit now, based on spaced repetition.</p>
+            <summary>What is a bucket, a note, and a stack?</summary>
+            <p class="faq-a"><strong>Buckets</strong> are subjects (Biology, Spanish, Interview prep). <strong>Notes</strong> are what you save inside a bucket — typed text, a link, a YouTube video, a PDF or an image. Any note you mark for spaced revision becomes a card in your reviews. A <strong>stack</strong> is today’s short review set, chosen for you by the scheduler.</p>
           </details>
           <details class="faq-item" data-faq>
             <summary>How does spaced repetition work here?</summary>
-            <p class="faq-a">After each card, you rate how it felt (Again / Hard / Good / Easy). Cards you struggle with return sooner; cards you know well space out. Over time, that flattens the forgetting curve — without cramming the night before.</p>
+            <p class="faq-a">After each card you say how it went: <strong>Forgot</strong> or <strong>Got it</strong>. Tap <strong>More</strong> if you want the finer grades, Hard and Easy. Cards you struggle with return sooner; cards you know well space out. Over time that flattens the forgetting curve — without cramming the night before.</p>
           </details>
           <details class="faq-item" data-faq>
             <summary>Where should I begin on day one?</summary>
-            <p class="faq-a">Create a bucket for one subject you care about. Add a few cards (or let Aura draft them from notes). When Today shows cards due, start a review. Small and consistent beats huge and abandoned.</p>
+            <p class="faq-a">Create a bucket for one subject you care about and put a few notes in it. When Today shows cards ready, start a review. Small and consistent beats huge and abandoned.</p>
           </details>
         </div>
       </section>
 
       <section class="faq-panel" data-panel="reviews" role="tabpanel" hidden>
         <h2>Reviews &amp; Drops</h2>
-        <p class="faq-lead">The heat ring is a glance, not a guilt meter.</p>
+        <p class="faq-lead">The ring is a glance, not a guilt meter.</p>
         <div class="faq-list">
           <details class="faq-item" data-faq>
             <summary>Nothing is due today — is that bad?</summary>
             <p class="faq-a">No. It means nothing is scheduled right now. Add new material, or wait for the next due window. “All caught up” is a feature, not a failure.</p>
           </details>
           <details class="faq-item" data-faq>
-            <summary>What do Again / Hard / Good / Easy do?</summary>
-            <p class="faq-a">They tell the scheduler how stable the memory felt. <strong>Again</strong> brings it back soon. <strong>Easy</strong> pushes it further out. Be honest — the algorithm only works if the ratings match reality.</p>
+            <summary>What do Forgot, Got it, Hard and Easy do?</summary>
+            <p class="faq-a">Each rating tells the scheduler how stable the memory felt. <strong>Forgot</strong> brings the card back soon. <strong>Got it</strong> is the normal pass. Under <strong>More</strong>, <strong>Hard</strong> shortens the next gap and <strong>Easy</strong> pushes it further out. Be honest — the scheduler only works if the ratings match reality. (Quiz flashcards use the four grades directly: Forgot, Hard, Good, Easy.)</p>
           </details>
           <details class="faq-item" data-faq>
             <summary>Recall Drops aren’t arriving</summary>
             <p class="faq-a">Check three things: (1) OS notification permission is on, (2) Recall Drop / push is enabled in Settings, (3) you’re outside Quiet hours. Also confirm you have cards that can become due. Still silent? Email us with your device and OS version.</p>
           </details>
           <details class="faq-item" data-faq>
-            <summary>Why does free only get a few review stacks each month?</summary>
-            <p class="faq-a">Free includes the full engine with honest limits — including monthly review stacks — so the product stays calm and sustainable. Premium unlocks unlimited stacks. You’ll see the remaining stacks on Today when you’re on free.</p>
+            <summary>Can I make Drops quieter or louder?</summary>
+            <p class="faq-a">Yes — Settings → Recall Drop → Reminder style. <strong>Gentle</strong> waits for a larger batch, nudges at most a few times a day, and never re-nudges. <strong>Standard</strong> is the default: balanced, and it re-nudges after about two hours if a Drop is still unseen. <strong>Persistent</strong> keeps nudging in smaller batches. <strong>ASAO</strong> drops as soon as even one note is ready. Each style carries its own daily cap and its own minimum gap between Drops, so none of them can pile up.</p>
+          </details>
+          <details class="faq-item" data-faq>
+            <summary>How do Quiet hours work?</summary>
+            <p class="faq-a">Quiet hours are a window in which no Recall Drops are sent. Set a start and end time in Settings → Recall Drop → Quiet hours, or turn the window off entirely. Anything that becomes due during quiet hours simply waits until the window ends.</p>
+          </details>
+          <details class="faq-item" data-faq>
+            <summary>Can I keep a note without it entering my reviews?</summary>
+            <p class="faq-a">Yes. Spaced revision is a switch you control per note and per bucket, so Recall also works as a plain notes app for anything you just want to keep. Turn it off on a single note, or on a whole bucket, and nothing from it is scheduled.</p>
+          </details>
+          <details class="faq-item" data-faq>
+            <summary>What is Memory strength?</summary>
+            <p class="faq-a">Memory strength is how firmly you want to hold a subject. Raise it and cards come back more often, which means more reviews but a firmer hold; lower it and reviews get lighter and further apart. Set it once for your account, and override it per bucket where a subject needs a different grip.</p>
           </details>
         </div>
       </section>
@@ -136,15 +373,23 @@
 
       <section class="faq-panel" data-panel="ai" role="tabpanel" hidden>
         <h2>Aura AI</h2>
-        <p class="faq-lead">Notes in. Cards out. Always review what Aura drafts.</p>
+        <p class="faq-lead">Grounded in your notes, enriched by Aura.</p>
         <div class="faq-list">
           <details class="faq-item" data-faq>
             <summary>What does Aura do?</summary>
-            <p class="faq-a">Aura turns notes into revision cards, helps with summaries and chat over your material, and can power quiz generation on eligible plans. Free includes a monthly quota; Premium raises limits. AI can be wrong — edit before you trust a card.</p>
+            <p class="faq-a">Aura works on the notes you have already saved rather than writing new material for you. It summarises a whole bucket, answers questions about your own material and shows which notes the answer came from, and suggests clearer rewrites of a note you’re editing. AI can be wrong — read what it gives you before you rely on it.</p>
+          </details>
+          <details class="faq-item" data-faq>
+            <summary>Where does Aura get its answers?</summary>
+            <p class="faq-a">Aura searches your own notes first and cites the ones it used. If your notes don’t cover the question, it falls back on general knowledge rather than inventing a citation to a note you don’t have. It does not browse the web, so anything outside your notes comes from the model itself — treat it as a starting point, not a source.</p>
+          </details>
+          <details class="faq-item" data-faq>
+            <summary>Can I change how Aura writes?</summary>
+            <p class="faq-a">Yes — open <strong>Tune Aura</strong> and tell it how you like answers: shorter, more examples, less hedging. Those preferences are stored for your account only and applied to your future answers. You can view or clear them at any time.</p>
           </details>
           <details class="faq-item" data-faq>
             <summary>Aura is empty, slow, or weird</summary>
-            <p class="faq-a">Check your network, try again in a minute, and confirm you haven’t hit the free monthly quota. If Premium features are locked, upgrade or wait for the next cycle. Never paste passwords or confidential IDs into AI prompts.</p>
+            <p class="faq-a">Check your network first — Aura needs a connection and won’t run offline. If a bucket has very little in it, answers will be thin, because Aura only has your notes to work from. Try again in a minute if a request stalls. Never paste passwords or confidential IDs into AI prompts.</p>
           </details>
           <details class="faq-item" data-faq>
             <summary>Is my content used to train Ripple’s models?</summary>
@@ -174,19 +419,23 @@
 
       <section class="faq-panel" data-panel="billing" role="tabpanel" hidden>
         <h2>Billing</h2>
-        <p class="faq-lead">Free to start. Premium when you want the ceiling lifted.</p>
+        <p class="faq-lead">Free right now, with no paywall in the app.</p>
         <div class="faq-list">
           <details class="faq-item" data-faq>
-            <summary>What’s free vs Premium?</summary>
-            <p class="faq-a"><strong>Free:</strong> full spaced-repetition engine, up to 2 buckets, monthly review stack limits, and limited AI. <strong>Premium:</strong> unlimited buckets and stacks, quiz, fuller insights, and higher AI limits. No ads either way.</p>
+            <summary>What does Recall cost?</summary>
+            <p class="faq-a">Recall is free and has no ads. There is currently no paywall anywhere in the app: the spaced-revision engine, your buckets and notes, Recall Drops, insights, and asking or summarising your notes with Aura are all open. A Premium plan will arrive later for the heavier things — the larger AI models and quiz. If a limit is ever in force on your account, the app shows it to you where it applies.</p>
           </details>
           <details class="faq-item" data-faq>
-            <summary>How do I manage or cancel Premium?</summary>
+            <summary>What about Quiz?</summary>
+            <p class="faq-a">Quiz is still being finished, so it isn’t generally available yet. If you open it today you’ll see a short note saying the practice modes are on the way rather than a prompt to pay. We’ll turn it on properly once the modes are done.</p>
+          </details>
+          <details class="faq-item" data-faq>
+            <summary>How do I manage or cancel a subscription?</summary>
             <p class="faq-a">Subscriptions are billed by Google Play or the App Store. Manage or cancel in that store’s subscription settings. Refunds follow the store’s policies.</p>
           </details>
           <details class="faq-item" data-faq>
             <summary>I paid but Premium didn’t unlock</summary>
-            <p class="faq-a">Open the paywall or Settings and use Restore purchases. Wait a minute online. Still locked? Email <a href="mailto:contact@ripplelabs.in">contact@ripplelabs.in</a> with your store order ID and the email on your Recall account.</p>
+            <p class="faq-a">Open Settings and use Restore purchases, then give it a minute while you’re online. Still locked? Email <a href="mailto:contact@ripplelabs.in">contact@ripplelabs.in</a> with your store order ID and the email on your Recall account.</p>
           </details>
         </div>
       </section>
