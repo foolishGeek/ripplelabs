@@ -34,6 +34,23 @@
   });
 
   /* ═══════════════════════════════════════════════
+     NAV — settle onto the page once scrolling starts
+     ═══════════════════════════════════════════════ */
+  var navBar = document.querySelector('.nav-bar');
+  var navTicking = false;
+  function syncNav() {
+    navBar.classList.toggle('nav-bar--scrolled', window.scrollY > 24);
+    navTicking = false;
+  }
+  window.addEventListener('scroll', function () {
+    if (!navTicking) {
+      navTicking = true;
+      window.requestAnimationFrame(syncNav);
+    }
+  }, { passive: true });
+  syncNav();
+
+  /* ═══════════════════════════════════════════════
      SCROLL REVEAL (IntersectionObserver)
      ═══════════════════════════════════════════════ */
   var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
@@ -42,13 +59,19 @@
   if (reduce || !('IntersectionObserver' in window)) {
     reveals.forEach(function (el) { el.classList.add('done'); });
   } else {
+    // Elements that come into view together stagger in reading order, so the
+    // cadence follows the content rather than a fixed rotation of variants.
     var io = new IntersectionObserver(function (entries) {
-      entries.forEach(function (e) {
-        if (e.isIntersecting) {
-          e.target.classList.add('in');
-          io.unobserve(e.target);
-          setTimeout(function () { e.target.classList.add('done'); }, 1300);
-        }
+      var batch = entries.filter(function (e) { return e.isIntersecting; });
+      batch.sort(function (a, b) {
+        return (a.target.compareDocumentPosition(b.target) &
+          Node.DOCUMENT_POSITION_FOLLOWING) ? -1 : 1;
+      });
+      batch.forEach(function (e, i) {
+        e.target.style.setProperty('--reveal-i', i);
+        e.target.classList.add('in');
+        io.unobserve(e.target);
+        setTimeout(function () { e.target.classList.add('done'); }, 1300 + i * 70);
       });
     }, { threshold: 0, rootMargin: '0px 0px 200px 0px' });
     reveals.forEach(function (el) { io.observe(el); });
@@ -61,12 +84,12 @@
      animate between states (like React key reconciliation).
      ═══════════════════════════════════════════════ */
   var DECK = [
-    { id: 'k1', bucket: 'Statistics', title: 'Bayes\u2019 theorem',        heat: 0.74, rating: 'HARD', rc: '#E5484D' },
-    { id: 'k2', bucket: 'Biology',    title: 'The Krebs cycle',            heat: 0.92, rating: 'GOOD', rc: '#46A758' },
-    { id: 'k3', bucket: 'Spanish',    title: 'The subjunctive mood',       heat: 0.46, rating: 'GOOD', rc: '#46A758' },
-    { id: 'k4', bucket: 'Finance',    title: 'Compound interest',          heat: 0.30, rating: 'EASY', rc: '#46A758' },
-    { id: 'k5', bucket: 'Korean',     title: '\uC0AC\uB791\uD574 \u2014 love', heat: 0.62, rating: 'GOOD', rc: '#46A758' },
-    { id: 'k6', bucket: 'Philosophy', title: 'The dichotomy of control',   heat: 0.52, rating: 'GOOD', rc: '#46A758' },
+    { id: 'k1', bucket: 'Statistics', title: 'Bayes\u2019 theorem',        pri: 0.74, rating: 'HARD',   rc: '#F5A623' },
+    { id: 'k2', bucket: 'Biology',    title: 'The Krebs cycle',            pri: 0.92, rating: 'GOT IT', rc: '#46A758' },
+    { id: 'k3', bucket: 'Spanish',    title: 'The subjunctive mood',       pri: 0.46, rating: 'GOT IT', rc: '#46A758' },
+    { id: 'k4', bucket: 'Finance',    title: 'Compound interest',          pri: 0.30, rating: 'EASY',   rc: '#46A758' },
+    { id: 'k5', bucket: 'Korean',     title: '\uC0AC\uB791\uD574 \u2014 love', pri: 0.62, rating: 'FORGOT', rc: '#E5484D' },
+    { id: 'k6', bucket: 'Philosophy', title: 'The dichotomy of control',   pri: 0.52, rating: 'GOT IT', rc: '#46A758' },
   ];
 
   var POS = {
@@ -83,17 +106,16 @@
   var step = 0;
   var len = DECK.length;
 
-  function getPriority(heat) {
-    if (heat >= 0.66) return { l: 'HIGH', c: '#E5484D' };
-    if (heat >= 0.40) return { l: 'MED',  c: '#F5A623' };
+  function getPriority(pri) {
+    if (pri >= 0.66) return { l: 'HIGH', c: '#E5484D' };
+    if (pri >= 0.40) return { l: 'MED',  c: '#F5A623' };
     return { l: 'LOW', c: '#46A758' };
   }
 
   var cardEls = [];
   for (var i = 0; i < len; i++) {
     var c = DECK[i];
-    var heatOp = (0.16 + c.heat * 0.8).toFixed(2);
-    var heatShadow = c.heat > 0.6 ? '0 0 9px var(--glow)' : 'none';
+    var dotOp = (0.16 + c.pri * 0.8).toFixed(2);
 
     var card = document.createElement('div');
     card.className = 'review-card';
@@ -101,7 +123,7 @@
     card.innerHTML =
       '<div class="review-card__top">' +
         '<span class="review-card__bucket">' + c.bucket + '</span>' +
-        '<span class="review-card__heat" style="opacity:' + heatOp + ';box-shadow:' + heatShadow + '"></span>' +
+        '<span class="review-card__dot" style="opacity:' + dotOp + '"></span>' +
       '</div>' +
       '<div class="review-card__bottom">' +
         '<span class="review-card__title">' + c.title + '</span>' +
@@ -133,7 +155,7 @@
       }
 
       var reviewed = (p === -1);
-      var pri = getPriority(c.heat);
+      var pri = getPriority(c.pri);
       var chip = reviewed ? { l: c.rating, c: c.rc } : pri;
 
       el.style.transform = 'translateY(' + pos.ty + 'px) scale(' + pos.sc + ')';
@@ -195,44 +217,6 @@
     }
     heatmapEl.appendChild(col);
   }
-
-  /* ═══════════════════════════════════════════════
-     WAITLIST FORM HANDLER
-     ═══════════════════════════════════════════════ */
-  var waitlistForms = root.querySelectorAll('[data-waitlist]');
-  waitlistForms.forEach(function (form) {
-    var success = form.parentElement.querySelector('[data-waitlist-success]');
-    form.addEventListener('submit', function (e) {
-      e.preventDefault();
-      var btn = form.querySelector('.waitlist-btn');
-      var emailInput = form.querySelector('.waitlist-input');
-      var existing = form.parentElement.querySelector('.waitlist-error');
-      if (existing) existing.remove();
-
-      btn.disabled = true;
-      btn.textContent = 'Sending\u2026';
-
-      fetch(form.action, {
-        method: 'POST',
-        body: new FormData(form),
-        headers: { 'Accept': 'application/json' }
-      }).then(function (res) {
-        if (res.ok) {
-          form.style.display = 'none';
-          success.style.display = '';
-        } else {
-          throw new Error('Form submission failed');
-        }
-      }).catch(function () {
-        btn.disabled = false;
-        btn.innerHTML = 'Join waitlist <span class="arrow">\u2192</span>';
-        var err = document.createElement('div');
-        err.className = 'waitlist-error';
-        err.textContent = 'Something went wrong \u2014 please try again.';
-        form.parentElement.appendChild(err);
-      });
-    });
-  });
 
   /* ═══════════════════════════════════════════════
      SMOOTH SCROLL for anchor links
