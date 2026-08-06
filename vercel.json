@@ -1,5 +1,5 @@
 {
-  "ignoreCommand": "bash -c 'git diff HEAD^ HEAD --quiet -- recall/ vercel.json robots.txt'",
+  "ignoreCommand": "bash -c 'git diff HEAD^ HEAD --quiet -- recall/ vercel.json robots.txt llms.txt'",
   "redirects": [
     {
       "source": "/",

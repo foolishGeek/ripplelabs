@@ -8,6 +8,7 @@ on:
       - 'recall/**'
       - 'vercel.json'
       - 'robots.txt'
+      - 'llms.txt'
 
 concurrency:
   group: deploy-recall-production
