@@ -1,0 +1,41 @@
+# Recall
+
+> Recall is a free spaced repetition app by Ripple Labs. It stores the notes you want to remember and brings each one back right before you would forget it, using the FSRS scheduling algorithm and the Ebbinghaus forgetting curve. Available on Android via Google Play; an iOS version is in progress.
+
+## What Recall does
+
+- Save notes as typed text, links, YouTube videos, PDFs or images, organised into subject buckets.
+- Any note you mark for spaced revision becomes a card. Recall schedules when each card comes back.
+- Reviewing takes about a minute a day. Today shows a single number in a quiet monochrome ring: how many cards are ready.
+- Rate each card Forgot or Got it, with Hard and Easy available under More. The schedule adapts to your answer.
+- Recall Drops are gentle notifications when something is genuinely fading. Reminder style is tunable — Gentle, Standard (the default), Persistent, or ASAO, which drops as soon as one note is ready. Each style has its own daily cap and minimum gap, and quiet hours are supported.
+- Spaced revision is optional per note and per bucket, so Recall also works as a plain notes app.
+- Memory strength sets how firmly you want to hold a subject, with presets Relaxed, Balanced and Thorough. It is set per account and can be overridden per bucket.
+- Insights show streak, adherence, what is due, an activity heatmap and a projected retention curve. There are no leaderboards.
+- Reviews work offline and sync when you reconnect.
+
+## Aura, the built-in AI
+
+Aura works on notes you have already saved. It does not generate flashcards from pasted text, and it does not browse the web.
+
+- Summarise a whole bucket, and share the summary as an image card.
+- Ask questions about your own material. Answers cite the notes they came from.
+- Suggest clearer rewrites of a note you are editing.
+- Tune Aura to your preferred answer style; preferences are stored per user.
+- Where your notes do not cover a question, Aura falls back on general knowledge rather than inventing a citation.
+
+## Pricing
+
+Recall is free and has no ads. There is currently no paywall anywhere in the app: the spaced-revision engine, buckets and notes, Recall Drops, insights, and asking or summarising your notes with Aura are all open. A Premium plan is planned for heavier features, specifically the larger AI models and quiz. Quiz is still being finished and is not generally available. Any limit that applies to an account is shown inside the app.
+
+## Links
+
+- [Recall](https://ripplelabs.in/recall): product overview, how spaced repetition works, and FAQ.
+- [Help Center](https://ripplelabs.in/recall/help): sign-in, reviews, Recall Drops, offline sync, Aura, account and billing.
+- [Terms of Service](https://ripplelabs.in/recall/tos)
+- [Privacy Policy](https://ripplelabs.in/recall/privacy)
+- [Google Play listing](https://play.google.com/store/apps/details?id=app.recall)
+
+## Contact
+
+contact@ripplelabs.in
